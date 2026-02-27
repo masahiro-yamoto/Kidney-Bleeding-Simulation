@@ -18,3 +18,6 @@ To explore bleeding simulation for minimally invasive surgery training.
 ##Development Progress
 - v0.1: Constant bleeding simulation
 - v0.2: Multi-level bleeding control(planned)
+
+##screenshot
+![simulation](screenshots_simulation_20260224.png)
