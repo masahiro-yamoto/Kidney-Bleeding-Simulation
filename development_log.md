@@ -14,8 +14,7 @@ Next:
 ---
 
 ## 2026-02-27
-- Addedbleeding level 1-3 control
-- Key input implemented
+- Implemented 3-level bleeding control(Level 1-3)
+- Successfully adjusted emitter speed via key input
 - Created repository
 - Add README
-- 
