@@ -28,3 +28,12 @@ Lifespan: 4
 Disk Radius: 0.5  
 
 This configuration is defined as the baseline for quantitative comparison.
+
+### Level1 Baseline Visualization
+
+![Level1 Baseline](level1_baseline_20260228.png)
+
+Observation:
+- Stable flow
+- Moderate pooling on surface
+- No excessive spray
