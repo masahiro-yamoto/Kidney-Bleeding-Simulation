@@ -89,3 +89,49 @@ Interpretation:
 Defined as moderate bleeding severity (Level2),
 representing elevated hemodynamic pressure
 without arterial pulsatile characteristics.
+
+### Level3 Implementation Log (2026-02-28)
+
+Model Type:
+Arterial-like pulsatile bleeding (educational exaggeration model)
+
+Emitter Settings:
+- Emission Mode: Stream
+- Lifespan: 3.5
+- Disk Radius: 0.2
+- Random Direction: 0.15
+
+Pulse Controller:
+- Base Speed: 0.4
+- Pulse Amplitude: 0.4
+- Pulse Frequency: 3.5
+
+Behavior:
+Bleeding velocity varies periodically to simulate arterial pulsation.
+Flow demonstrates increased projection distance and visible pooling.
+Clear visual distinction from Level1 and Level2 achieved.
+
+Purpose:
+Educational visualization of high-risk arterial bleeding state.
+
+### Level3 Pulsatile Bleeding Visualization (2026-02-28)
+![simulation](level3_baseline_20260228.png)
+Parameters:
+- Emission Mode: Stream
+- Lifespan: 3.5
+- Disk Radius: 0.2
+- Random Direction: 0.15
+- Base Speed: 0.4
+- Pulse Amplitude: 0.4
+- Pulse Frequency: 3.5
+
+Observation:
+Bleeding exhibits periodic velocity variation consistent with pulsatile arterial flow.
+Compared to Level2, projection distance and kinetic impact are clearly increased.
+Ground pooling expands rapidly during peak pulse phases.
+Flow maintains structural continuity without excessive spray dispersion.
+
+Interpretation:
+Defined as Level3 (arterial-like bleeding).
+Represents a high-risk condition requiring immediate hemostatic intervention.
+Model intentionally includes slight exaggeration for educational clarity.
