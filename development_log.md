@@ -21,19 +21,33 @@ Next:
 
 ## 2026-02-28
 
-### Level1 Revised Baseline
+### Level1 Final Baseline (Fixed)
 
-Speed: 0.12〜0.15
-Lifespan: 1.8〜2
+Speed: 0.15
+Lifespan: 2
 Radius: 0.2
+Random Direction: 0.05
 
-Visual impression:
-Mild continuous oozing without large pooling.
+Description:
+Stable mild continuous bleeding (venous-like oozing).
+Minimal pooling.
+No arterial spray behavior.
 
-### Level1 Baseline Visualization
-
+### Level1 Final Baseline Visualization (2026-02-28)
+![simulation](level1_baseline_1_20260228.png)
+Parameters:
+- Emission Mode: Stream
+- Speed: 0.15
+- Lifespan: 2.0
+- Disk Radius: 0.2
+- Random Direction: 0.05
 
 Observation:
-- Stable flow
-- Moderate pooling on surface
-- No excessive spray
+The bleeding presents as a thin, continuous venous-like oozing.
+Flow remains stable without arterial spray characteristics.
+Ground pooling is minimal and localized beneath the emission point.
+No excessive splashing or particle penetration observed.
+
+Interpretation:
+This configuration is defined as the quantitative baseline for
+mild bleeding severity (Level1) in the simulation.
