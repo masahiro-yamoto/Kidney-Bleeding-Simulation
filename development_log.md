@@ -52,23 +52,18 @@ Interpretation:
 This configuration is defined as the quantitative baseline for
 mild bleeding severity (Level1) in the simulation.
 
-### Level2 Baseline Visualization (2026-02-28)
+### Level2 Implementation Log 
 
-Parameters:
-- Emission Mode: Stream
-- Speed: 0.25
-- Lifespan: 2.7
-- Disk Radius: 0.2
-- Random Direction: 0.08
+Speed: 0.25
+Lifespan: 2.7
+Radius: 0.2
+Random Direction: 0.08
 
-Observation:
-Bleeding flow shows increased velocity and pooling compared to Level1.
-Flow remains continuous without arterial spray characteristics.
-Ground accumulation expands moderately beneath the wound.
-
-Interpretation:
-Defined as moderate bleeding severity (Level2) caused by elevated
-hemodynamic pressure while maintaining identical wound geometry.
+Description:
+Moderate continuous bleeding with increased flow intensity.
+Represents elevated intrarenal pressure.
+Noticeable increase in volume compared to Level1.
+No pulsatile arterial behavior.
 
 ### Level2 Baseline Visualization (2026-02-28)
 ![simulation](level2_baseline_20260228.png)
@@ -136,7 +131,7 @@ Defined as Level3 (arterial-like bleeding).
 Represents a high-risk condition requiring immediate hemostatic intervention.
 Model intentionally includes slight exaggeration for educational clarity.
 
-### Raycast-Based Incision Model Integration
+### Raycast-Based Incision Model Integration (2026-02-28)
 
 - Transitioned from global click-triggered bleeding activation to a location-specific Raycast detection model.
 - Implemented `Camera.main` auto-reference for stable camera acquisition.
@@ -150,9 +145,7 @@ Educational Significance:
 This update shifts the simulator from a generic bleeding trigger to a procedure-aware interaction model.  
 Learners now initiate bleeding through deliberate anatomical targeting, reinforcing spatial awareness and controlled incision training.
 
----
-
-### Level3 Arterial Model Verification
+### Level3 Arterial Model Verification (2026-02-28)
 
 - Confirmed pulsatile bleeding behavior under Level3 settings.
 - Verified visual distinction between Level2 (moderate) and Level3 (arterial) severity.
