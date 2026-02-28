@@ -34,7 +34,7 @@ Minimal pooling.
 No arterial spray behavior.
 
 ### Level1 Final Baseline Visualization (2026-02-28)
-![simulation](level1_baseline_1_20260228.png)
+![simulation](level1_baseline_finalized_20260228.png)
 Parameters:
 - Emission Mode: Stream
 - Speed: 0.15
