@@ -32,7 +32,6 @@ Mild continuous oozing without large pooling.
 
 ### Level1 Baseline Visualization
 
-![Level1 Baseline](level1_baseline_20260228.png)
 
 Observation:
 - Stable flow
