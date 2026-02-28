@@ -135,3 +135,28 @@ Interpretation:
 Defined as Level3 (arterial-like bleeding).
 Represents a high-risk condition requiring immediate hemostatic intervention.
 Model intentionally includes slight exaggeration for educational clarity.
+
+### Raycast-Based Incision Model Integration
+
+- Transitioned from global click-triggered bleeding activation to a location-specific Raycast detection model.
+- Implemented `Camera.main` auto-reference for stable camera acquisition.
+- Generated interaction rays using `ScreenPointToRay`.
+- Verified collider-based kidney detection via `Physics.Raycast`.
+- Identified and resolved tag assignment issue (applied `Kidney` tag to collider-bearing object).
+- Confirmed that bleeding is triggered only when the kidney object is directly clicked.
+- Validated system stability through repeated testing.
+
+Educational Significance:
+This update shifts the simulator from a generic bleeding trigger to a procedure-aware interaction model.  
+Learners now initiate bleeding through deliberate anatomical targeting, reinforcing spatial awareness and controlled incision training.
+
+---
+
+### Level3 Arterial Model Verification
+
+- Confirmed pulsatile bleeding behavior under Level3 settings.
+- Verified visual distinction between Level2 (moderate) and Level3 (arterial) severity.
+- Maintained exaggerated arterial response for educational clarity at current stage.
+
+Educational Significance:
+Level3 now provides a visually distinct high-risk bleeding scenario, enabling learners to recognize urgency and differentiate hemorrhage severity during simulated procedures.
