@@ -21,13 +21,14 @@ Next:
 
 ## 2026-02-28
 
-### Level1 Baseline (Mild bleeding)
+### Level1 Revised Baseline
 
-Speed: 0.25  
-Lifespan: 4  
-Disk Radius: 0.5  
+Speed: 0.12〜0.15
+Lifespan: 1.8〜2
+Radius: 0.2
 
-This configuration is defined as the baseline for quantitative comparison.
+Visual impression:
+Mild continuous oozing without large pooling.
 
 ### Level1 Baseline Visualization
 
