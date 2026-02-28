@@ -18,3 +18,13 @@ Next:
 - Successfully adjusted emitter speed via key input
 - Created repository
 - Add README
+
+## 2026-02-28
+
+### Level1 Baseline (Mild bleeding)
+
+Speed: 0.25  
+Lifespan: 4  
+Disk Radius: 0.5  
+
+This configuration is defined as the baseline for quantitative comparison.
