@@ -153,3 +153,68 @@ Learners now initiate bleeding through deliberate anatomical targeting, reinforc
 
 Educational Significance:
 Level3 now provides a visually distinct high-risk bleeding scenario, enabling learners to recognize urgency and differentiate hemorrhage severity during simulated procedures.
+
+---
+
+## 2026-03-03
+
+### Depth-Responsive Bleeding Model Implementation
+
+* Implemented incision depth calculation using vector dot product.
+* Stored initial surface contact point as depth reference.
+* Recorded surface normal for directional projection.
+* Replaced fixed threshold-based speed switching with continuous depth scaling.
+* Introduced normalized depth factor (`Mathf.Clamp01`) for stable intensity mapping.
+* Added optional sinusoidal modulation to simulate arterial pulsation.
+* Converted bleeding intensity from stepwise activation to proportional control.
+
+Technical Notes:
+
+Depth calculation:
+
+```
+depth = Vector3.Dot(hit.point - incisionStartPoint, -incisionNormal)
+```
+
+Intensity normalization:
+
+```
+normalizedDepth = Mathf.Clamp01(depth / maxDepth)
+emitter.speed = normalizedDepth * baseSpeed
+```
+
+Behavior:
+Bleeding intensity now varies continuously according to incision depth.
+Shallow cuts produce mild oozing.
+Deeper incisions increase emission velocity proportionally.
+
+Observation:
+Visual transition between venous-like and arterial-like behavior
+is now gradual rather than threshold-based.
+
+Interpretation:
+This update transitions the simulator from discrete severity presets
+to anatomically responsive bleeding modulation.
+
+---
+
+### Ongoing Issues (Unresolved)
+
+* Occasional particle penetration through kidney mesh
+* Surface adherence instability at higher emission speeds
+* Solver precision tuning required
+
+These aspects will be addressed in future optimization phases.
+
+---
+
+### Development Phase Classification
+
+v0.5 → Depth-based bleeding response model introduced
+
+System now supports incision-driven dynamic bleeding behavior,
+forming the foundation for future physical stabilization work.
+
+---
+![simulation](level3_baseline_20260303.png)
+
