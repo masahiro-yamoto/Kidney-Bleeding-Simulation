@@ -33,6 +33,8 @@ Stable mild continuous bleeding (venous-like oozing).
 Minimal pooling.
 No arterial spray behavior.
 
+---
+
 ### Level1 Final Baseline Visualization (2026-02-28)
 ![simulation](level1_baseline_finalized_20260228.png)
 Parameters:
@@ -52,6 +54,8 @@ Interpretation:
 This configuration is defined as the quantitative baseline for
 mild bleeding severity (Level1) in the simulation.
 
+---
+
 ### Level2 Implementation Log 
 
 Speed: 0.25
@@ -64,6 +68,8 @@ Moderate continuous bleeding with increased flow intensity.
 Represents elevated intrarenal pressure.
 Noticeable increase in volume compared to Level1.
 No pulsatile arterial behavior.
+
+---
 
 ### Level2 Baseline Visualization (2026-02-28)
 ![simulation](level2_baseline_20260228.png)
@@ -84,6 +90,8 @@ Interpretation:
 Defined as moderate bleeding severity (Level2),
 representing elevated hemodynamic pressure
 without arterial pulsatile characteristics.
+
+---
 
 ### Level3 Implementation Log (2026-02-28)
 
@@ -109,6 +117,8 @@ Clear visual distinction from Level1 and Level2 achieved.
 Purpose:
 Educational visualization of high-risk arterial bleeding state.
 
+---
+
 ### Level3 Pulsatile Bleeding Visualization (2026-02-28)
 ![simulation](level3_baseline_20260228.png)
 Parameters:
@@ -131,6 +141,8 @@ Defined as Level3 (arterial-like bleeding).
 Represents a high-risk condition requiring immediate hemostatic intervention.
 Model intentionally includes slight exaggeration for educational clarity.
 
+---
+
 ### Raycast-Based Incision Model Integration (2026-02-28)
 
 - Transitioned from global click-triggered bleeding activation to a location-specific Raycast detection model.
@@ -144,6 +156,8 @@ Model intentionally includes slight exaggeration for educational clarity.
 Educational Significance:
 This update shifts the simulator from a generic bleeding trigger to a procedure-aware interaction model.  
 Learners now initiate bleeding through deliberate anatomical targeting, reinforcing spatial awareness and controlled incision training.
+
+---
 
 ### Level3 Arterial Model Verification (2026-02-28)
 
