@@ -271,9 +271,85 @@ The bleeding system uses three emitters:
 
 These emitters are controlled by the incision controller script and respond to incision depth.
 
+### Depth Calculation
 
-### Depth Calculation Logic
+Incision depth is calculated using vector projection onto the inward surface normal.
 
-Incision depth is calculated using the dot product between the displacement vector from the initial incision point and the inverted surface normal.
+```
+depth = Vector3.Dot(hit.point - incisionStartPoint, -incisionNormal);
+```
+
+This projects the incision movement onto the inward surface normal to estimate penetration depth.
+
+---
+
+### Depth Normalization
+
+Depth values are normalized to produce a stable bleeding intensity response.
+
+```
+normalizedDepth = Mathf.Clamp01(depth / maxDepth);
+```
+
+This converts the raw depth value into a stable 0–1 range.
+
+---
+
+### Bleeding Intensity Control
+
+Bleeding intensity is scaled proportionally to the normalized depth value.
+
+```
+float baseSpeed = normalizedDepth * 1.5f;
+emitter.speed = baseSpeed;
+```
+
+---
+
+### Pulsatile Blood Flow Simulation
+
+Additional sinusoidal modulation was introduced to simulate natural arterial pulsation.
+
+```
+float pulse = Mathf.Sin(Time.time * 6f) * 0.15f + 0.85f;
+emitter.speed = baseSpeed * pulse;
+```
 
 
+### Hemostasis Interaction
+
+A hemostasis interaction mechanism was implemented.
+
+While holding the `C` key during cutting, bleeding intensity is reduced gradually.
+
+This allows simulated surgical intervention during bleeding events.
+
+
+### Current System Behavior
+
+- Shallow incisions produce mild bleeding
+- Deeper incisions increase bleeding intensity
+- Hemostasis input (`C`) reduces bleeding intensity
+- Obi particle simulation now functions correctly
+
+
+### Remaining Issues
+
+The following technical issues remain:
+
+- Occasional particle penetration through the kidney mesh
+- Surface adhesion instability at higher emission speeds
+- Further tuning required for stable bleeding behavior
+
+
+### Development Phase
+
+v0.6
+
+Current system capabilities:
+
+- Depth-responsive bleeding model
+- Multi-level bleeding emitters
+- Operator-controlled hemostasis interaction
+
+These components form the foundation for further development of the surgical simulation system.
