@@ -232,3 +232,48 @@ forming the foundation for future physical stabilization work.
 ---
 ![simulation](level3_baseline_20260303.png)
 
+## 2026-03-04
+
+### Depth-Based Bleeding System Debugging and Stabilization
+
+Continued development and debugging of the depth-responsive bleeding system implemented in the kidney incision simulation.
+
+Confirmed correct functionality of the following systems:
+
+- Depth-based bleeding model
+- DepthHemostasis model (bleeding suppression using `C` key while cutting)
+- Obi particle-based bleeding emitters
+
+
+### System Configuration Fixes
+
+Several configuration issues were identified during testing.
+
+Resolved problems included:
+
+- Multiple bleeding scripts attached to emitter objects
+- Script duplication causing namespace conflicts in Visual Studio
+- Incorrect object references in the `SurgeryController`
+- Disabled Obi solver preventing particle simulation
+
+After investigation, the primary cause of the non-functioning bleeding system was that the **Obi Solver component was not enabled**.
+
+Enabling the solver restored particle simulation and bleeding behavior.
+
+
+### Emitter Configuration
+
+The bleeding system uses three emitters:
+
+- `Bleeding_Level1`
+- `Bleeding_Level2`
+- `Bleeding_Level3`
+
+These emitters are controlled by the incision controller script and respond to incision depth.
+
+
+### Depth Calculation Logic
+
+Incision depth is calculated using the dot product between the displacement vector from the initial incision point and the inverted surface normal.
+
+
