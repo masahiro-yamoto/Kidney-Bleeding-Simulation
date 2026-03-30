@@ -133,3 +133,17 @@ and reduced internal particle artifacts.
 
 ![simulation](screenshots_simulation_20260303.png)
 
+
+
+## Demo
+（動画 or GIF）
+
+## Key Features
+- Depth-based bleeding response
+- Pulsatile flow simulation
+- Coagulation (hemostasis) interaction
+
+## Result
+- Bleeding intensity increases with depth
+- Coagulation reduces bleeding over time
+
