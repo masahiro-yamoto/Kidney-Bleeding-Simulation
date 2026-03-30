@@ -136,7 +136,10 @@ and reduced internal particle artifacts.
 
 
 ## Demo
-（動画 or GIF）
+
+[![Kidney Bleeding Simulation Demo](https://img.youtube.com/vi/n4kzwEsFI_s/0.jpg)](https://youtube.com/shorts/n4kzwEsFI_s?feature=share)
+
+This demo shows depth-dependent bleeding and coagulation interaction.
 
 ## Key Features
 - Depth-based bleeding response
