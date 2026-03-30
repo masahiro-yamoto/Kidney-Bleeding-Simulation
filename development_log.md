@@ -353,3 +353,101 @@ Current system capabilities:
 - Operator-controlled hemostasis interaction
 
 These components form the foundation for further development of the surgical simulation system.
+
+## 2026-03-27
+
+### UI Integration and Real-Time Bleeding Visualization
+
+Implemented a real-time UI system to display bleeding intensity during simulation.
+
+The system continuously retrieves bleeding intensity from the incision controller
+and updates a Text component on screen.
+
+This enables direct observation of quantitative changes in bleeding behavior
+during incision and coagulation interactions.
+
+---
+
+### System Implementation
+
+A public accessor method was introduced to expose bleeding intensity:
+
+---
+public float GetBleedingIntensity()
+{
+    return bleedingIntensity;
+}
+---
+
+The UI script references the controller and updates the display every frame:
+
+---
+bleedingText.text = "Bleeding: " + controller.GetBleedingIntensity().ToString("F2");
+---
+
+This provides a stable and readable numeric representation of bleeding intensity.
+
+---
+
+### Data Logging and CSV Export
+
+Implemented time-series logging of bleeding intensity data.
+
+During simulation, the following format is recorded:
+
+---
+Time.time, bleedingIntensity
+---
+
+Example:
+---
+0.1, 0.25
+0.2, 0.38
+---
+
+Data is exported as a CSV file for external analysis.
+
+---
+
+### Graph-Based Analysis
+
+Generated graphs from recorded CSV data to evaluate system behavior.
+
+Comparisons were performed between:
+
+* Shallow incision
+* Deep incision
+* Coagulation (hemostasis) phase
+
+---
+
+Observations
+
+* Bleeding intensity increases with incision depth
+* Pulsatile variation is observable over time
+* Coagulation input results in gradual decay of bleeding intensity
+
+---
+Interpretation
+
+This update extends the system from a purely visual simulation
+to a quantitatively analyzable model.
+
+Real-time UI feedback improves user understanding,
+while CSV logging enables objective evaluation and comparison.
+
+---
+
+### Development Phase
+
+v0.7
+
+Current system capabilities:
+
+- Depth-responsive bleeding simulation
+- Hemostasis interaction (C key)
+- Real-time bleeding intensity visualization (UI)
+- CSV-based data logging and graph analysis
+
+The system now supports both interactive simulation and quantitative analysis,
+strengthening its applicability for educational and research purposes.
