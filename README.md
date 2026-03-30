@@ -132,7 +132,7 @@ and reduced internal particle artifacts.
 ## Screenshots
 
 ![simulation](screenshots_simulation_20260303.png)
-
+![simulation](BleedingIntensityResponseToIncisionDepthandHemosasis.png)
 
 
 ## Demo
