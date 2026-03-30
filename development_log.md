@@ -11,8 +11,6 @@ Problems:
 Next:
 - Add multi-level bleeding control
 
----
-
 ## 2026-02-27
 - Implemented 3-level bleeding control(Level 1-3)
 - Successfully adjusted emitter speed via key input
@@ -372,12 +370,12 @@ during incision and coagulation interactions.
 
 A public accessor method was introduced to expose bleeding intensity:
 
----
+```
 public float GetBleedingIntensity()
 {
     return bleedingIntensity;
 }
----
+```
 
 The UI script references the controller and updates the display every frame:
 
@@ -400,10 +398,10 @@ Time.time, bleedingIntensity
 ---
 
 Example:
----
+```
 0.1, 0.25
 0.2, 0.38
----
+```
 
 Data is exported as a CSV file for external analysis.
 
