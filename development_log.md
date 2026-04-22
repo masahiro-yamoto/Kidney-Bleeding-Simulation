@@ -463,4 +463,59 @@ This update ensures that bleeding originates consistently from the initial incis
 improving visual realism and anatomical consistency.
 
 ---
+### System Implementation
 
+A fixed bleeding point variable was introduced:
+
+```
+Vector3 fixedBleedPoint;
+```
+The position is stored at the moment of incision:
+```
+fixedBleedPoint = hit.point;
+emitter.transform.position = fixedBleedPoint;
+```
+During update, the emitter position remains fixed:
+
+---
+### emitter.transform.position = fixedBleedPoint + hit.normal * 0.01f;
+
+The emission direction continues to follow the surface normal:
+
+```
+emitter.transform.forward = -hit.normal;
+```
+---
+### Behavior Change
+Bleeding no longer follows cursor movement
+Emission remains anchored at the incision site
+Surface alignment is preserved using normal offset
+
+---
+### Observations
+Significant improvement in visual stability
+Bleeding appears localized to a single anatomical point
+Reduction of unnatural lateral movement
+
+---
+### Interpretation
+
+This update improves spatial consistency within the simulation.
+
+By fixing the emission point, the system more accurately represents
+localized vascular injury rather than cursor-driven behavior.
+
+This enhances realism and strengthens the surgical simulation model.
+
+---
+### Development Phase
+
+v0.8
+
+Current system capabilities:
+
+- Depth-responsive bleeding simulation
+- Hemostasis interaction (C key)
+- Real-time bleeding intensity visualization (UI)
+- CSV-based data logging and graph analysis
+- Fixed bleeding source position for improved realism
