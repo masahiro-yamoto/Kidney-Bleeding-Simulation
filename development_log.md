@@ -450,23 +450,9 @@ Current system capabilities:
 The system now supports both interactive simulation and quantitative analysis,
 strengthening its applicability for educational and research purposes.
 
-## 2026-03-15
-
-### UI Integration and Real-Time Bleeding Visualization
-
-Implemented a real-time UI system to display bleeding intensity during simulation.
-
-The system continuously retrieves bleeding intensity from the incision controller
-and updates a Text component on screen.
-
-This enables direct observation of quantitative changes in bleeding behavior
-during incision and coagulation interactions.
-
----
+## 2026-04-15
 
 ### Fixed Bleeding Point Implementation
-
-A public accessor method was introduced to expose bleeding intensity:
 
 Implemented a fixed bleeding position system to stabilize the emission point during incision.
 
