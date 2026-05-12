@@ -188,6 +188,47 @@ and reduced internal particle artifacts.
 
 This demo shows depth-dependent bleeding and coagulation interaction.
 
+## Additional Demonstrations
+
+## Additional Demonstrations
+
+### 1. Non-vessel incision (No bleeding)
+
+[![Non-vessel incision](https://img.youtube.com/vi/xg-Jt2TMh0E/0.jpg)](https://youtube.com/shorts/xg-Jt2TMh0E?feature=share)
+
+This demonstration shows incision on a non-vessel region (black area of the vessel map).
+
+No bleeding occurs, confirming that hemorrhage is activated only when vessel regions are intersected.
+
+---
+
+### 2. Vessel incision with depth-responsive bleeding
+
+[![Vessel incision with depth response](https://img.youtube.com/vi/-9izMYmGbdE/0.jpg)](https://youtube.com/shorts/-9izMYmGbdE?feature=share)
+
+This demonstration shows incision intersecting a vessel region (white area of the vessel map).
+
+Bleeding begins after vessel contact.
+Bleeding intensity increases continuously according to incision depth.
+
+This demonstrates:
+
+- vessel-aware activation
+- depth-responsive bleeding
+- persistent vascular injury behavior
+
+---
+
+### 3. Hemostasis (Bleeding reduction)
+
+[![Hemostasis](https://img.youtube.com/vi/WC9sgvXNrcc/0.jpg)](https://youtube.com/shorts/WC9sgvXNrcc?feature=share)
+
+This demonstration shows coagulation during active bleeding.
+
+While the `C` key is pressed, bleeding intensity gradually decreases.
+
+This simulates simplified hemostatic intervention during surgery.
+
 ## Key Features
 
 - Depth-based bleeding response
