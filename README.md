@@ -190,8 +190,6 @@ This demo shows depth-dependent bleeding and coagulation interaction.
 
 ## Additional Demonstrations
 
-## Additional Demonstrations
-
 ### 1. Non-vessel incision (No bleeding)
 
 [![Non-vessel incision](https://img.youtube.com/vi/xg-Jt2TMh0E/0.jpg)](https://youtube.com/shorts/xg-Jt2TMh0E?feature=share)
