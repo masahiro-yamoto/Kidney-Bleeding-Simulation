@@ -519,3 +519,219 @@ Current system capabilities:
 - Real-time bleeding intensity visualization (UI)
 - CSV-based data logging and graph analysis
 - Fixed bleeding source position for improved realism
+
+## 2026-05-12
+
+### Vessel Texture-Based Bleeding Model
+
+Implemented a vessel-aware bleeding model using UV texture mapping.
+
+A manually created vessel map texture was projected onto the kidney surface.
+Bleeding now occurs only when the incision intersects vessel regions defined in the texture.
+
+This approach enables anatomical variation without explicitly modeling internal vessel geometry.
+
+---
+
+### Vessel Texture Creation
+
+Created a grayscale vessel texture using Blender UV workflow.
+
+Process:
+
+- Imported kidney model into Blender
+- Generated UV map using Smart UV Project
+- Exported UV layout as PNG
+- Drew vessel distribution manually on the UV map
+- Imported the vessel texture into Unity
+- Assigned texture for runtime vessel detection
+
+White regions represent vessels.
+Black regions represent non-vessel tissue.
+
+---
+
+### UV-Based Vessel Detection
+
+Implemented runtime vessel sampling using raycast UV coordinates.
+
+Texture coordinates are retrieved at the incision point:
+
+```
+Vector2 uv = hit.textureCoord;
+```
+
+The corresponding pixel is sampled from the vessel texture:
+
+```
+Color pixel = vesselTexture.GetPixelBilinear(uv.x, uv.y);
+float vesselDensity = pixel.r;
+```
+
+
+This value determines vessel presence and relative vessel size.
+
+---
+
+### Dynamic Vessel Injury State
+
+Implemented vessel persistence logic.
+
+A vessel injury state variable was introduced:
+
+```
+bool vesselOpened = false;
+```
+
+
+Once a vessel region is intersected during incision,
+the bleeding state remains active even if the cursor moves away.
+
+Behavior:
+
+- Black → White → Black : bleeding continues
+- White → Black : bleeding continues
+- Release mouse : bleeding ends
+
+This more closely represents actual vascular injury.
+
+---
+
+### Dynamic Bleeding Source Relocation
+
+Updated bleeding origin behavior.
+
+Previously, bleeding remained fixed at the initial incision point.
+
+New behavior:
+
+When a vessel region is encountered:
+
+```
+fixedBleedPoint = hit.point;
+```
+
+
+The bleeding origin moves to the detected vessel location.
+
+This allows realistic transition from superficial incision
+to vessel rupture during deeper progression.
+
+---
+
+### Surface Flow Direction
+
+Improved emission direction.
+
+Previously:
+
+- outward normal emission
+
+Updated:
+
+- gravity-guided surface flow
+
+Implementation:
+
+```
+Vector3 flowDir = ( Vector3.ProjectOnPlane(Vector3.down, hit.normal) * 0.7f - hit.normal * 0.3f).normalized;
+```
+
+
+This causes blood to:
+
+- spread over surface
+- flow downward
+- appear more realistic
+
+---
+
+### Quantitative Vessel Response
+
+Bleeding intensity is now affected by vessel density.
+
+Calculation:
+
+```
+float vesselMultiplier =
+Mathf.Lerp(0.5f, 2.5f, vesselDensity);
+```
+
+
+Effects:
+
+- thin vessel → mild bleeding
+- thick vessel → severe bleeding
+
+This introduces spatial heterogeneity.
+
+---
+
+### System Capability Expansion
+
+Current simulation now responds to:
+
+- incision position
+- incision depth
+- vessel distribution
+- vessel thickness
+- hemostatic intervention
+
+This extends the simulator from a surface bleeding model
+to a simplified vascular injury model.
+
+---
+
+### Observations
+
+Confirmed behaviors:
+
+- bleeding only on vessel regions
+- vessel-triggered delayed hemorrhage
+- persistent bleeding after vessel damage
+- surface-following blood flow
+- stable CSV recording
+
+The visual realism significantly improved
+compared to the fixed-point bleeding model.
+
+---
+
+### Interpretation
+
+This update introduces a practical method for
+vascular injury simulation without explicit vessel mesh modeling.
+
+By combining:
+
+- UV vessel texture
+- depth-responsive bleeding
+- persistent injury state
+
+the simulator approximates accidental vessel rupture during partial nephrectomy.
+
+This represents a meaningful improvement toward
+procedure-oriented surgical simulation.
+
+---
+
+### Development Phase
+
+v0.9
+
+Current system capabilities:
+
+- Depth-responsive bleeding
+- Hemostasis interaction
+- Real-time bleeding UI
+- CSV quantitative logging
+- Fixed bleeding source
+- Vessel texture mapping
+- Vessel-specific hemorrhage
+- Surface blood flow simulation
+
+The system now supports localized vascular injury
+with quantitative evaluation capability.
+
+
+
