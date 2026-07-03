@@ -733,5 +733,151 @@ Current system capabilities:
 The system now supports localized vascular injury
 with quantitative evaluation capability.
 
+## 2026-06-23
+
+### Hemostasis Interaction Design for RenderTexture-Based Incision Visualization
+
+Designed a hemostasis interaction system for the RenderTexture-based incision visualization framework.
+
+The goal is to reproduce the surgical workflow:
+
+Incision → Bleeding → Hemostasis
+
+within the existing UV-space mask system.
+
+Instead of modifying the original bleeding mask directly, a separate hemostasis mask was introduced to independently represent coagulated regions.
+
+This design improves modularity and allows bleeding and hemostasis states to be visualized simultaneously.
+
+---
+
+### Dual-Mask Architecture
+
+Introduced a dual-mask structure:
+
+* BleedMask
+* HemostasisMask
+
+Roles:
+
+* BleedMask stores incision and bleeding regions.
+* HemostasisMask stores coagulated regions.
+
+Both masks are maintained independently and supplied to the shader at runtime.
+
+This architecture enables future quantitative evaluation of:
+
+* Bleeding area
+* Hemostasis area
+* Residual bleeding area
+
+without altering previously recorded incision data.
+
+---
+
+### Shader Extension for Hemostasis Visualization
+
+Extended the RenderTexture shader to support coagulation rendering.
+
+Added new shader properties:
+
+* _HemostasisMask
+* _HemostasisColor
+
+Rendering process:
+
+1. Apply kidney base color.
+2. Blend bleeding regions using BloodColor.
+3. Blend coagulated regions using HemostasisColor.
+
+Hemostasis regions are rendered using a dark brown color to represent cauterized tissue.
+
+This allows clear visual differentiation between:
+
+* Active bleeding
+* Coagulated tissue
+
+during simulation.
+
+---
+
+### Right-Click Hemostasis Interaction
+
+Designed a new interaction method:
+
+Left Mouse Button
+
+* Create incision
+* Paint BleedMask
+* Display red bleeding region
+
+Right Mouse Button
+
+* Apply hemostasis
+* Paint HemostasisMask
+* Display dark brown coagulated region
+
+The workflow now mirrors basic surgical behavior:
+
+Incision → Bleeding → Hemostasis
+
+using separate UV-space masks.
+
+---
+
+### Additional RenderTexture Resource
+
+Created a dedicated RenderTexture:
+
+HemostasisMask_RT
+
+Recommended settings:
+
+* Resolution: 512 × 512
+* Color Format: R8_UNORM
+* Wrap Mode: Clamp
+* Filter Mode: Bilinear
+
+Since the mask stores only grayscale information, a single-channel texture format is sufficient and reduces memory usage compared to RGBA formats.
+
+---
+
+### Future Quantitative Evaluation
+
+The dual-mask structure enables future calculation of:
+
+Bleeding Area
+
+* Number of white pixels in BleedMask
+
+Hemostasis Area
+
+* Number of white pixels in HemostasisMask
+
+Residual Bleeding Area
+
+* Bleeding Area − Hemostasis Area
+
+These metrics can be exported to CSV and used as quantitative indicators for surgical performance assessment.
+
+---
+
+### Current Status
+
+Implemented / Designed:
+
+✔ Dual-mask architecture
+
+✔ Hemostasis RenderTexture design
+
+✔ Right-click hemostasis interaction
+
+✔ Dark brown coagulation visualization
+
+✔ Shader support for hemostasis rendering
+
+✔ Future compatibility with quantitative evaluation
+
+The RenderTexture system has evolved from simple incision visualization toward a complete incision–bleeding–hemostasis simulation framework suitable for surgical training and quantitative analysis.
 
 
